@@ -1,0 +1,18 @@
+nav .breadcrumb {
+    display: flex;
+    list-style: none;
+    font-family: 'Arial';
+    color: rgb(2, 48, 71);
+    padding: 0;
+    margin-bottom: 40px;
+}
+
+nav .breadcrumb li {
+    margin: 0 10px;
+}
+
+nav .breadcrumb li a {
+    text-decoration: none;
+    margin-right: 20px;
+    color: rgb(2, 48, 71);
+}
