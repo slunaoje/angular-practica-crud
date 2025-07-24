@@ -1,6 +1,6 @@
 import { Component } from '@angular/core'
 import { RouterOutlet } from '@angular/router'
-import { BreadcrumbsComponent } from '../breadcrumbs/breadcrumbs.component'
+import { BreadcrumbsComponent } from '../../Shared/Components/breadcrumbs/breadcrumbs.component'
 
 @Component({
     selector: 'app-front-layout',

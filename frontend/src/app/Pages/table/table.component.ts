@@ -7,7 +7,7 @@ import {
     CdkMenuTrigger,
 } from '@angular/cdk/menu'
 import { Component } from '@angular/core'
-import { BasicButtonDirective } from '../basic-button.directive'
+import { BasicButtonDirective } from '../../basic-button.directive'
 
 @Component({
     selector: 'app-table',

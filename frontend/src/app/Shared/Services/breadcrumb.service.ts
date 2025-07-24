@@ -37,8 +37,11 @@ export class BreadcrumbService {
         const routeUrl = route.url.map((segment) => segment.path).join('/')
         const nextUrl = routeUrl ? `${url}/${routeUrl}` : url || '/'
 
-        // Incluir el breadcrumb si hay etiqueta
-        if (label !== undefined) {
+        if (
+            label !== undefined &&
+            (breadcrumbs.length === 0 ||
+                breadcrumbs[breadcrumbs.length - 1].label !== label)
+        ) {
             breadcrumbs.push({ label, url: nextUrl })
         }
 

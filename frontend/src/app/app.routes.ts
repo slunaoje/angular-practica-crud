@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router'
-import { FrontLayoutComponent } from './front-layout/front-layout.component'
-import { HomeComponent } from './home/home.component'
-import { TableComponent } from './table/table.component'
+import { FrontLayoutComponent } from './layouts/front-layout/front-layout.component'
+import { HomeComponent } from './Pages/home/home.component'
+import { TableComponent } from './Pages/table/table.component'
 
 export const routes: Routes = [
     {
