@@ -1,17 +1,18 @@
-nav .breadcrumb {
+div .breadcrumb {
     display: flex;
     list-style: none;
     font-family: 'Arial';
     color: rgb(2, 48, 71);
-    padding: 0;
-    margin-bottom: 40px;
+    margin: 0;
+    padding: 20px 30px;
+    border-bottom: 1px solid rgb(2, 48, 71);
 }
 
-nav .breadcrumb li {
+div .breadcrumb li {
     margin: 0 10px;
 }
 
-nav .breadcrumb li a {
+div .breadcrumb li a {
     text-decoration: none;
     margin-right: 20px;
     color: rgb(2, 48, 71);
