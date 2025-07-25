@@ -6,8 +6,10 @@ import {
     CdkMenuItemRadio,
     CdkMenuTrigger,
 } from '@angular/cdk/menu'
-import { Component } from '@angular/core'
+import { Component, inject } from '@angular/core'
+import { rxResource } from '@angular/core/rxjs-interop'
 import { BasicButtonDirective } from '../../basic-button.directive'
+import { CarsService } from '../../cars/services/cars.service'
 
 @Component({
     selector: 'app-table',
@@ -24,11 +26,15 @@ import { BasicButtonDirective } from '../../basic-button.directive'
     styleUrl: './table.component.css',
 })
 export class TableComponent {
+    carsService = inject(CarsService)
     colorPrimary = 'rgb(33 158 188)'
     colorSecondary = 'rgb(255, 183, 3)'
     bold = false
     italic = false
 
+    carsResource = rxResource({
+        loader: () => this.carsService.getCars(),
+    })
     sizes = ['Small', 'Normal', 'Large']
     selectedSize: string | undefined = 'Normal'
 

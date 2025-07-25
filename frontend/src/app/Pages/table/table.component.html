@@ -5,29 +5,31 @@
     <table>
         <thead>
             <tr>
-                <th style="width: 10%">ID</th>
+                <th style="width: 350px">ID</th>
                 <th>Marca</th>
                 <th>Modelo</th>
-                <th style="width: 15%">Total</th>
+                <th>Total</th>
                 <th style="width: 10%">Acciones</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td style="text-align: center">
-                    <button
-                        class="botonAcciones"
-                        [appBasicButton]="colorSecondary"
-                        [cdkMenuTriggerFor]="menu"
-                    >
-                        Acciones
-                    </button>
-                </td>
-            </tr>
+            @for (car of carsResource.value(); track car.id) {
+                <tr>
+                    <td>{{ car.id }}</td>
+                    <td>{{ car.brand }}</td>
+                    <td>{{ car.model }}</td>
+                    <td>{{ car.total }}</td>
+                    <td style="text-align: center">
+                        <button
+                            class="botonAcciones"
+                            [appBasicButton]="colorSecondary"
+                            [cdkMenuTriggerFor]="menu"
+                        >
+                            Acciones
+                        </button>
+                    </td>
+                </tr>
+            }
         </tbody>
     </table>
 </div>
