@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http'
 import { inject, Injectable } from '@angular/core'
 import { Observable } from 'rxjs'
-import { environment } from '../../../environments/environment.development'
+import { environment } from '../../../environments/environment'
 import { CarResponse } from '../interfaces/car.interface'
 
 const apiUrl = environment.apiUrl
@@ -11,7 +11,6 @@ const apiUrl = environment.apiUrl
 })
 export class CarsService {
     private http = inject(HttpClient)
-    token = 'mock-token'
 
     getCars(): Observable<CarResponse[]> {
         //GET /cars
