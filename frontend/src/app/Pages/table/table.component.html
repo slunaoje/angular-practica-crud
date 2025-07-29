@@ -1,0 +1,61 @@
+<div class="seccionBoton">
+    <button [appBasicButton]="colorPrimary">Crear</button>
+</div>
+<div class="seccionTabla">
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 350px">ID</th>
+                <th>Marca</th>
+                <th>Modelo</th>
+                <th>Total</th>
+                <th style="width: 10%">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (car of carsResource.value(); track car.id) {
+                <tr>
+                    <td>{{ car.id }}</td>
+                    <td>{{ car.brand }}</td>
+                    <td>{{ car.model }}</td>
+                    <td>{{ car.total }}</td>
+                    <td style="text-align: center">
+                        <button
+                            class="botonAcciones"
+                            [appBasicButton]="colorSecondary"
+                            [cdkMenuTriggerFor]="menu"
+                            [cdkMenuTriggerData]="{ id: car.id }"
+                        >
+                            Acciones
+                        </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<ng-template #menu let-id="id">
+    <div class="example-menu" cdkMenu>
+        <button
+            cdkMenuItem
+            class="example-menu-item"
+            (cdkMenuItemTriggered)="see(id)"
+        >
+            Ver
+        </button>
+        <button
+            cdkMenuItem
+            class="example-menu-item"
+            (cdkMenuItemTriggered)="edit()"
+        >
+            Editar
+        </button>
+        <button
+            cdkMenuItem
+            class="example-menu-item"
+            (cdkMenuItemTriggered)="remove()"
+        >
+            Eliminar
+        </button>
+    </div>
+</ng-template>

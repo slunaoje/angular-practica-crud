@@ -1,0 +1,61 @@
+.containerCarDetails {
+    font-family: Arial;
+}
+.containerCarDetails .carsDetailsId {
+    margin-bottom: 10px;
+}
+.containerCarDetails .carsDetailsTotal {
+    margin-bottom: 40px;
+}
+.containerCarDetails table tr {
+    height: 50px;
+}
+.containerCarDetails table thead tr th {
+    text-align: left;
+}
+.containerCarDetails table tbody tr td div {
+    display: flex;
+    justify-content: space-between;
+    justify-items: center;
+}
+.containerCarDetails table tbody tr td div span[class^='mileage'] {
+    padding: 5px 10px;
+    font-weight: 600;
+    border-radius: 5px;
+}
+.containerCarDetails table tbody tr td div span {
+    margin: auto 0;
+}
+.containerCarDetails table tbody tr td div span.mileageNuevo {
+    background-color: green;
+}
+.containerCarDetails table tbody tr td div span.mileageNuevo::after {
+    content: 'Nuevo';
+}
+.containerCarDetails table tbody tr td div span.mileageKm0 {
+    background-color: royalblue;
+    color: white;
+}
+.containerCarDetails table tbody tr td div span.mileageKm0::after {
+    content: 'Km 0';
+}
+.containerCarDetails table tbody tr td div span.mileageOcasion {
+    background-color: gold;
+}
+.containerCarDetails table tbody tr td div span.mileageOcasion::after {
+    content: 'Ocasión';
+}
+.containerCarDetails table tbody tr td:has(div.carDetailsAvailable) {
+    background-color: green;
+    color: white;
+}
+.containerCarDetails table tbody tr td:has(div.carDetailsNoAvailable) {
+    background-color: darkred;
+    color: white;
+}
+.containerCarDetails table tbody tr td div.carDetailsAvailable::after {
+    content: 'Disponible';
+}
+.containerCarDetails table tbody tr td div.carDetailsNoAvailable::after {
+    content: 'No disponible';
+}
