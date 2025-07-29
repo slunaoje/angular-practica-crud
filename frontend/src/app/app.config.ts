@@ -1,4 +1,8 @@
-import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core'
+import {
+    ApplicationConfig,
+    LOCALE_ID,
+    provideZoneChangeDetection,
+} from '@angular/core'
 import { provideRouter } from '@angular/router'
 
 import {
@@ -14,5 +18,9 @@ export const appConfig: ApplicationConfig = {
         provideZoneChangeDetection({ eventCoalescing: true }),
         provideRouter(routes),
         provideHttpClient(withFetch(), withInterceptors([carsInterceptor])),
+        {
+            provide: LOCALE_ID,
+            useValue: 'es',
+        },
     ],
 }
