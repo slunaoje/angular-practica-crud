@@ -24,6 +24,7 @@
                             class="botonAcciones"
                             [appBasicButton]="colorSecondary"
                             [cdkMenuTriggerFor]="menu"
+                            [cdkMenuTriggerData]="{ id: car.id }"
                         >
                             Acciones
                         </button>
@@ -33,23 +34,28 @@
         </tbody>
     </table>
 </div>
-<ng-template #menu>
+<ng-template #menu let-id="id">
     <div class="example-menu" cdkMenu>
         <button
-            cdkMenuItemCheckbox
+            cdkMenuItem
             class="example-menu-item"
-            [cdkMenuItemChecked]="bold"
-            (cdkMenuItemTriggered)="bold = !bold"
+            (cdkMenuItemTriggered)="see(id)"
         >
-            Bold
+            Ver
         </button>
         <button
-            cdkMenuItemCheckbox
+            cdkMenuItem
             class="example-menu-item"
-            [cdkMenuItemChecked]="italic"
-            (cdkMenuItemTriggered)="italic = !italic"
+            (cdkMenuItemTriggered)="edit()"
         >
-            Italic
+            Editar
+        </button>
+        <button
+            cdkMenuItem
+            class="example-menu-item"
+            (cdkMenuItemTriggered)="remove()"
+        >
+            Eliminar
         </button>
     </div>
 </ng-template>
