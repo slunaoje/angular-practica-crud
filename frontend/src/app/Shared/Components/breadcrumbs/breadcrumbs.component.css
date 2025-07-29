@@ -1,0 +1,19 @@
+div .breadcrumb {
+    display: flex;
+    list-style: none;
+    font-family: 'Arial';
+    color: rgb(2, 48, 71);
+    margin: 0;
+    padding: 20px 30px;
+    border-bottom: 1px solid rgb(2, 48, 71);
+}
+
+div .breadcrumb li {
+    margin: 0 10px;
+}
+
+div .breadcrumb li a {
+    text-decoration: none;
+    margin-right: 20px;
+    color: rgb(2, 48, 71);
+}
