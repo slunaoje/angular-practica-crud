@@ -1,0 +1,87 @@
+<div class="containerCarDetails">
+    @if (carResource.value()) {
+        <!-- Guión largo (—): Alt + 0151 -->
+        <h1>
+            {{ carResource.value()!.brand }} — {{ carResource.value()!.model }}
+        </h1>
+        <div class="carsDetailsId">
+            <strong>ID:</strong> {{ carResource.value()!.id }}
+        </div>
+        <div class="carsDetailsTotal">
+            <strong>Total:</strong> {{ carResource.value()!.total }}
+        </div>
+        <hr />
+        <div class="carsDetails">
+            <h3>Stock de coches</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Fecha de registro</th>
+                        <th>Año de fabricación</th>
+                        <th>Precio</th>
+                        <th>Kilometraje</th>
+                        <th>Matrícula</th>
+                        <th>Disponibilidad</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (
+                        carDetails of carResource.value()!.carDetails;
+                        track $index
+                    ) {
+                        <tr>
+                            <td>
+                                <div>
+                                    {{
+                                        carDetails.registrationDate
+                                            | date: 'd MMM Y'
+                                    }}
+                                </div>
+                            </td>
+                            <td>
+                                <div>{{ carDetails.manufactureYear }}</div>
+                            </td>
+                            <td>
+                                <div>
+                                    {{
+                                        carDetails.price
+                                            | currency: carDetails.currency
+                                    }}
+                                </div>
+                            </td>
+                            <td>
+                                <div>
+                                    <span
+                                        >{{
+                                            carDetails.mileage | number: '1.0-0'
+                                        }}
+                                        km</span
+                                    >
+                                    <span
+                                        class="{{
+                                            carDetails.mileage | mileagePipe
+                                        }}"
+                                    ></span>
+                                </div>
+                            </td>
+                            <td>
+                                <div>{{ carDetails.licensePlate }}</div>
+                            </td>
+                            <td>
+                                <div
+                                    [class]="
+                                        carDetails.availability
+                                            ? 'carDetailsAvailable'
+                                            : 'carDetailsNoAvailable'
+                                    "
+                                ></div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    } @else {
+        <h1>No existe un coche con ese ID</h1>
+    }
+</div>
